@@ -13,5 +13,5 @@ public class StudentDto {
     private String parentName;
     private String parentEmail;
     private String parentPhone;
-    private List<CourseProgress> courseProgressList;
+    private List<CourseProgressDto> courseProgressList;
 }

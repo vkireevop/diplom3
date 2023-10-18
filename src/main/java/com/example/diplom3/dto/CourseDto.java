@@ -1,6 +1,7 @@
 package com.example.diplom3.dto;
 
 import lombok.Data;
+import lombok.ToString;
 
 import java.util.List;
 
@@ -10,5 +11,5 @@ public class CourseDto {
     private String title;
     private String description;
     private String ageGroup;
-    private List<TaskDto> taskSets;
+    private TaskSetDto taskSets;
 }

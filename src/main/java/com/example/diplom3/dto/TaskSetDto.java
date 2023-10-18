@@ -4,6 +4,7 @@ import com.example.diplom3.model.Course;
 import com.example.diplom3.model.Task;
 
 import lombok.Data;
+import lombok.ToString;
 
 import java.util.List;
 
@@ -14,5 +15,5 @@ public class TaskSetDto {
     private String title;
     private String description;
     private Course course;
-    private List<Task> tasks;
+    private List<TaskDto> tasks;
 }

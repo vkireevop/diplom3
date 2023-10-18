@@ -10,7 +10,7 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
-@ToString
+@ToString(exclude = "tasks")
 @Table(name = "task_sets")
 public class TaskSet {
     @Id
@@ -21,7 +21,7 @@ public class TaskSet {
     private String title;
     private String description;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "course_id")
     private Course course;
 

@@ -5,9 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class Diplom3Application {
-
     public static void main(String[] args) {
         SpringApplication.run(Diplom3Application.class, args);
+
     }
 
 }

@@ -9,7 +9,7 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
-@ToString
+@ToString(exclude = "taskSets")
     @Table(name = "courses")
     public class Course {
         @Id
@@ -21,8 +21,8 @@ import java.util.List;
         private String description;
         private String ageGroup;
 
-        @OneToMany(mappedBy = "course")
-        private List<TaskSet> taskSets;
+        @OneToOne(mappedBy = "course")
+        private TaskSet taskSets;
 }
 
 
