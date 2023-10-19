@@ -18,7 +18,6 @@ public class Task {
 
     private String question;
     private String answer;
-
     @ManyToOne
     @JoinColumn(name = "task_set_id")
     private TaskSet taskSet;

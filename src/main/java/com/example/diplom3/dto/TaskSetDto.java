@@ -9,6 +9,7 @@ import lombok.ToString;
 import java.util.List;
 
 @Data
+@ToString(exclude = "tasks")
 public class TaskSetDto {
     private Long taskSetId;
 

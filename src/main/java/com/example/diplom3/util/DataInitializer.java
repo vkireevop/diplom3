@@ -1,17 +1,11 @@
 package com.example.diplom3.util;
 
-import com.example.diplom3.dto.CourseDto;
-import com.example.diplom3.dto.TaskSetDto;
-import com.example.diplom3.model.Course;
-import com.example.diplom3.model.CourseProgress;
-import com.example.diplom3.model.Task;
-import com.example.diplom3.model.TaskSet;
+import com.example.diplom3.dto.CourseProgressDto;
+import com.example.diplom3.model.*;
+import com.example.diplom3.service.buisness.CheckAnswersService;
 import com.example.diplom3.service.models.*;
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Component;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Component
 public class DataInitializer {
@@ -20,12 +14,14 @@ public class DataInitializer {
     private final StudentService ss;
     private final TaskService ts;
     private final TaskSetService tss;
-    public DataInitializer(CourseProgressService cps, CourseService cs, StudentService ss, TaskService ts, TaskSetService tss) {
+    private final CheckAnswersService ca;
+    public DataInitializer(CourseProgressService cps, CourseService cs, StudentService ss, TaskService ts, TaskSetService tss, CheckAnswersService ca) {
         this.cps = cps;
         this.cs = cs;
         this.ss = ss;
         this.ts = ts;
         this.tss = tss;
+        this.ca = ca;
     }
     @PostConstruct
     public void initialize(){
@@ -49,10 +45,17 @@ public class DataInitializer {
         task1.setAnswer("таск ответ12");
         task1.setTaskSet(taskSet);
         ts.save(task1);
-        CourseDto course2 = cs.findById(1L);
-        TaskSetDto taskSet1 = tss.findById(1L);
-
-        System.out.println(course2.getTaskSets());
-        System.out.println(taskSet1.getTasks());
+        Student student = new Student();
+        student.setFirstName("student1");
+        student.setLastName("student1");
+        ss.save(student);
+        CourseProgress courseProgress = new CourseProgress();
+        courseProgress.setStudent(student);
+        courseProgress.setCourse(course);
+        cps.save(courseProgress);
+        CourseProgressDto courseProgressDto = cps.findById(1L);
+        System.out.println(courseProgressDto.getCompletedTask());
+        CourseProgressDto courseProgress1 =  cps.findById(1L);
+        System.out.println(cs.findById(1L).getTaskSets().getTasks());
     }
 }

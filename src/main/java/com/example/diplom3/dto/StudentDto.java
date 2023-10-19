@@ -1,11 +1,12 @@
 package com.example.diplom3.dto;
 
-import com.example.diplom3.model.CourseProgress;
 import lombok.Data;
+import lombok.ToString;
 
 import java.util.List;
 
 @Data
+@ToString(exclude = "courseProgressList")
 public class StudentDto {
     private Long studentId;
     private String firstName;

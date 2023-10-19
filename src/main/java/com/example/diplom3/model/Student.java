@@ -10,7 +10,7 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
-@ToString
+@ToString(exclude = "courseProgressList")
 @Table(name = "students")
 public class Student {
     @Id

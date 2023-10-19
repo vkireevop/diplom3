@@ -26,7 +26,7 @@ public class CourseProgress {
     @JoinColumn(name = "course_id")
     private Course course;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "completed_tasks",
             joinColumns = @JoinColumn(name = "progress_id"),
