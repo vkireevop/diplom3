@@ -49,13 +49,6 @@ public class DataInitializer {
         student.setFirstName("student1");
         student.setLastName("student1");
         ss.save(student);
-        CourseProgress courseProgress = new CourseProgress();
-        courseProgress.setStudent(student);
-        courseProgress.setCourse(course);
-        cps.save(courseProgress);
-        CourseProgressDto courseProgressDto = cps.findById(1L);
-        System.out.println(courseProgressDto.getCompletedTask());
-        CourseProgressDto courseProgress1 =  cps.findById(1L);
-        System.out.println(cs.findById(1L).getTaskSets().getTasks());
+
     }
 }

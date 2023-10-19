@@ -7,6 +7,9 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class CourseServiceImpl implements CourseService {
     private final CourseRepository rep;
@@ -35,5 +38,15 @@ public class CourseServiceImpl implements CourseService {
     public CourseDto findById(Long id) {
         ModelMapper mapper = new ModelMapper();
         return mapper.map(rep.findById(id).get(), CourseDto.class);
+    }
+    @Override
+    public List<CourseDto> findAll(){
+        ModelMapper mapper = new ModelMapper();
+        List<Course> courses = rep.findAll().stream().toList();
+        List<CourseDto> courseDto = new ArrayList<>();
+        for (Course course: courses) {
+            courseDto.add(mapper.map(course,CourseDto.class));
+        }
+        return courseDto;
     }
 }
