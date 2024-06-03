@@ -5,6 +5,4 @@ import com.example.diplom3.model.CourseProgress;
 
 public interface CourseProgressService {
     void save(CourseProgress courseProgress);
-    CourseProgressDto findById(Long id);
-    void update(Long id, CourseProgress courseProgress);
 }

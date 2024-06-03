@@ -7,24 +7,24 @@ import com.example.diplom3.repository.CourseProgressRepository;
 import com.example.diplom3.repository.CourseRepository;
 import com.example.diplom3.repository.StudentRepository;
 
+import com.example.diplom3.security.UserService;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@AllArgsConstructor
 public class StudentCourseServiceImpl implements StudentCourseService{
     private final StudentRepository sr;
     private final CourseProgressRepository cpr;
     private final CourseRepository cr;
-    public StudentCourseServiceImpl(StudentRepository sr, CourseProgressRepository cpr, CourseRepository cr) {
-        this.sr = sr;
-        this.cpr = cpr;
-        this.cr = cr;
-    }
+
+    private final UserService userService;
 
     @Override
     @Transactional
-    public void addStudentAtCourse(Long studentId, Long courseId) {
-        Student student = sr.findById(studentId).get();
+    public void addStudentAtCourse(Long courseId) {
+        Student student = sr.getStudentByUserId(userService.getCurrentUser().getId());
         Course course = cr.findById(courseId).get();
         CourseProgress courseProgress = new CourseProgress();
         courseProgress.setStudent(student);

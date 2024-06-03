@@ -2,53 +2,55 @@ package com.example.diplom3.util;
 
 import com.example.diplom3.dto.CourseProgressDto;
 import com.example.diplom3.model.*;
+import com.example.diplom3.repository.CompletedTaskRepository;
 import com.example.diplom3.service.buisness.CheckAnswersService;
 import com.example.diplom3.service.models.*;
 import jakarta.annotation.PostConstruct;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
+@AllArgsConstructor
 public class DataInitializer {
     private final CourseProgressService cps;
     private final CourseService cs;
     private final StudentService ss;
     private final TaskService ts;
-    private final TaskSetService tss;
+
+    private final CompletedTaskRepository ctr;
+
     private final CheckAnswersService ca;
-    public DataInitializer(CourseProgressService cps, CourseService cs, StudentService ss, TaskService ts, TaskSetService tss, CheckAnswersService ca) {
-        this.cps = cps;
-        this.cs = cs;
-        this.ss = ss;
-        this.ts = ts;
-        this.tss = tss;
-        this.ca = ca;
-    }
     @PostConstruct
     public void initialize(){
-        Course course = new Course();
-        course.setTitle("тест курс");
-        course.setDescription("тестовый");
-        course.setAgeGroup("10");
-        cs.save(course);
-        TaskSet taskSet = new TaskSet();
-        taskSet.setTitle("набор заданий1");
-        taskSet.setDescription(" ");
-        taskSet.setCourse(course);
-        tss.save(taskSet);
-        Task task = new Task();
-        task.setQuestion("таск вопрос1");
-        task.setAnswer("таск ответ1");
-        task.setTaskSet(taskSet);
-        ts.save(task);
-        Task task1 = new Task();
-        task1.setQuestion("таск вопрос2");
-        task1.setAnswer("таск ответ12");
-        task1.setTaskSet(taskSet);
-        ts.save(task1);
-        Student student = new Student();
-        student.setFirstName("student1");
-        student.setLastName("student1");
-        ss.save(student);
+    Course course= new Course();
+    course.setAgeGroup(10L);
+    course.setTitle("Тест1");
+    course.setDescription("тест1");
+    cs.save(course);
+    Task task = new Task();
+    task.setCourse(course);
+    task.setQuestion("таск1");
+    task.setAnswer("таск1");
+    ts.save(task);
+    Task task1 = new Task();
+    task1.setCourse(course);
+    task1.setQuestion("таск2");
+    task1.setAnswer("таск2");
+    ts.save(task1);
+    Student student = new Student();
+    student.setFirstName("vadim");
+    student.setLastName("nevadim");
+    ss.save(student);
+    CourseProgress courseProgress = new CourseProgress();
+    courseProgress.setCourse(course);
+    courseProgress.setStudent(student);
+    cps.save(courseProgress);
+    CompletedTasks completedTasks = new CompletedTasks();
+    completedTasks.setCourseProgress(courseProgress);
+    completedTasks.setTask(task);
+    ctr.save(completedTasks);
 
     }
 }

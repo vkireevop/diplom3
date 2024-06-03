@@ -7,12 +7,10 @@ import lombok.ToString;
 import java.util.List;
 
 @Data
-@ToString(exclude = "taskSets")
 public class CourseDto {
     private Long id;
     private String title;
     private String description;
-    private String ageGroup;
-    @JsonIgnore
-    private TaskSetDto taskSets;
+    private Long ageGroup;
+    private List<TaskDto> taskSets;
 }

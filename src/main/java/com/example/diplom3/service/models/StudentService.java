@@ -7,5 +7,5 @@ import com.example.diplom3.model.Student;
 public interface StudentService {
     void save(Student student);
     StudentDto findById(Long id);
-    void update(Long id, Student student);
+
 }

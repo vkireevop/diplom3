@@ -5,33 +5,24 @@ import lombok.*;
 
 import java.util.List;
 
-@Entity
 @Data
 @NoArgsConstructor
 @Getter
 @Setter
 @ToString
+@Entity
 @Table(name = "course_progress")
 public class CourseProgress {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "progress_id")
     private Long progressId;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "student_id")
     private Student student;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "course_id")
     private Course course;
-
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(
-            name = "completed_tasks",
-            joinColumns = @JoinColumn(name = "progress_id"),
-            inverseJoinColumns = @JoinColumn(name = "task_id")
-    )
-    private List<Task> completedTasks;
 }
 

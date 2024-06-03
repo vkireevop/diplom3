@@ -25,11 +25,6 @@ public class MainController {
         this.taskService = taskService;
         this.studentCourseService = studentCourseService;
     }
-
-    @GetMapping("/taskList/{id}")
-    public ResponseEntity<List<TaskDto>> getTaskList(@PathVariable("id") Long id) {
-       return new ResponseEntity<>(courseService.findById(1L).getTaskSets().getTasks(), HttpStatus.OK);
-    }
     @PostMapping("/checkAnswer")
     public ResponseEntity<String> checkAnswer(@RequestParam Long id, @RequestParam String answer) {
         if (!checkAnswersService.checkAnswer(id,answer)) {
@@ -43,9 +38,5 @@ public class MainController {
     public ResponseEntity<List<CourseDto>> getAllCourses(){
      return new ResponseEntity<>(courseService.findAll(),HttpStatus.OK);
     }
-    @PostMapping("/acceptCourse")
-    public void acceptCourse(@RequestParam Long idCourse,@RequestParam Long idStudent) {
-        studentCourseService.addStudentAtCourse(idStudent,idCourse);
 
-    }
 }

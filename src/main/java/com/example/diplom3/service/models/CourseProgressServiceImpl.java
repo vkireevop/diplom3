@@ -28,28 +28,4 @@ public class CourseProgressServiceImpl implements CourseProgressService{
         rep.save(courseProgress);
     }
 
-    @Override
-    @Transactional
-    public void update(Long id, CourseProgress courseProgressUpdated) {
-        CourseProgress courseProgress = rep.findById(id).get();
-        courseProgress.setCourse(courseProgressUpdated.getCourse());
-        courseProgress.setStudent(courseProgressUpdated.getStudent());
-        courseProgress.setCompletedTasks(courseProgressUpdated.getCompletedTasks());
-    }
-    @Override
-    @Transactional
-    public CourseProgressDto findById(Long id) {
-        ModelMapper mapper =new ModelMapper();
-        CourseProgressDto courseProgressDto = new CourseProgressDto();
-        CourseProgress courseProgress = rep.findById(id).get();
-        courseProgressDto.setProgressId(courseProgress.getProgressId());
-        courseProgressDto.setCourse(mapper.map(courseProgress.getCourse(), CourseDto.class));
-        courseProgressDto.setStudent(mapper.map(courseProgress.getStudent(), StudentDto.class));
-        List<TaskDto> taskDtoList = new ArrayList<>();
-        for (Task task: courseProgress.getCompletedTasks()) {
-            taskDtoList.add(mapper.map(task,TaskDto.class));
-        }
-        courseProgressDto.setCompletedTask(taskDtoList);
-        return courseProgressDto;
-    }
 }

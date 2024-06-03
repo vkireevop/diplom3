@@ -1,16 +1,18 @@
 package com.example.diplom3.dto;
 
-import com.example.diplom3.model.TaskSet;
+import com.example.diplom3.model.Course;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
-import lombok.ToString;
 
-@ToString(exclude = "taskSet")
+import java.util.List;
+
+
 @Data
 public class TaskDto {
     private Long taskId;
     private String question;
+    private List<String> variants;
     private String answer;
     @JsonIgnore
-    private TaskSet taskSet;
+    private Course course;
 }

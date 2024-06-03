@@ -8,6 +8,6 @@ import java.util.List;
 public interface CourseService {
     void save(Course course);
     CourseDto findById(Long id);
-    void update(Long id,Course course);
+    List<CourseDto> findAllByAge(Long age);
     List<CourseDto> findAll();
 }

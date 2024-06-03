@@ -22,18 +22,6 @@ public class StudentServiceImpl implements StudentService{
 
     @Override
     @Transactional
-    public void update(Long id, Student studentUpdated) {
-        Student student = rep.findById(id).get();
-        student.setCourseProgressList(studentUpdated.getCourseProgressList());
-        student.setFirstName(studentUpdated.getFirstName());
-        student.setLastName(studentUpdated.getLastName());
-        student.setParentName(studentUpdated.getParentName());
-        student.setParentPhone(studentUpdated.getParentPhone());
-        student.setParentEmail(studentUpdated.getParentEmail());
-    }
-
-    @Override
-    @Transactional
     public StudentDto findById(Long id) {
         ModelMapper mapper = new ModelMapper();
         return mapper.map(rep.findById(id).get(), StudentDto.class);

@@ -35,9 +35,6 @@ public class CheckAnswersServiceServiceImpl implements CheckAnswersService {
     public void markTaskCompleted(Long taskId , Long courseProgressId) {
         Task task = taskRepository.findById(taskId).get();
         CourseProgress courseProgress = courseProgressRepository.findById(courseProgressId).get();
-        List<Task> completedTasks = courseProgress.getCompletedTasks();
-        completedTasks.add(task);
-        courseProgress.setCompletedTasks(completedTasks);
         courseProgressRepository.save(courseProgress);
     }
 }

@@ -5,25 +5,24 @@ import lombok.*;
 
 import java.util.List;
 
-@Entity
+
 @Data
 @NoArgsConstructor
 @Getter
 @Setter
-@ToString(exclude = "courseProgressList")
+@Builder
+@AllArgsConstructor
+@Entity
 @Table(name = "students")
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "student_id")
-    private Long studentId;
-
+    private Long id;
     private String firstName;
     private String lastName;
-    private String parentName;
-    private String parentEmail;
-    private String parentPhone;
 
-    @OneToMany(mappedBy = "student")
-    private List<CourseProgress> courseProgressList;
+    @OneToOne
+    private User user;
+
 }
