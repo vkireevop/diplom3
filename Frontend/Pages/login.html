@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=egde">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Авторизация и Регистрация</title>
+        <link rel="stylesheet" href="../Styles/styles-login.css">
+    </head>
+    <body>
+        <div class="container">
+            <form class="form" id="loginForm" action="" method="POST" style="display: block;">
+                <h2>Вход</h2>
+                <input type="text" placeholder="ФИО" required>
+                <input type="password" placeholder="Пароль" required>
+                <button id="submit-button" data-href="..\Pages\menu.html">Войти</button>
+                <p id="showRegistrationBtn">Регистрация</p>
+            </form>
+            <form class="form" id="registrationForm" action="" method="POST" style="display: none;">
+                <h2>Регистрация</h2>
+                <input type="text" placeholder="ФИО" required>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Пароль" required>
+                <button id="submit-button" data-href="..\Pages\menu.html">Зарегистрироваться</button>
+                <p id="showLoginBtn">Вход</p>
+            </form>
+        </div>
+        <script src="../Scripts/script-login.js"></script>
+    </body>
+</html>

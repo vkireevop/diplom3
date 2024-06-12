@@ -23,7 +23,7 @@ public class DataInitializer {
 
     private final CheckAnswersService ca;
     @PostConstruct
-    public void initialize() {
+    public void initialize(){
     Course course= new Course();
     course.setAgeGroup(10L);
     course.setTitle("Тест1");
@@ -34,13 +34,8 @@ public class DataInitializer {
     task.setQuestion("таск1");
     task.setAnswer("таск1");
     ts.save(task);
-    Course course1= new Course();
-    course1.setAgeGroup(10L);
-    course1.setTitle("Тест2");
-    course1.setDescription("тест2");
-    cs.save(course1);
     Task task1 = new Task();
-    task1.setCourse(course1);
+    task1.setCourse(course);
     task1.setQuestion("таск2");
     task1.setAnswer("таск2");
     ts.save(task1);

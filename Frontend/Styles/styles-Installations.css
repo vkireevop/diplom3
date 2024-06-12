@@ -1,0 +1,126 @@
+body {
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* .form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 300px;
+  width: 100%;
+  margin: 0 10px;
+} */
+
+button {
+  width: 48%;
+  padding: 10px;
+  margin: 10px;
+  box-sizing: border-box;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+
+  font-size: 20px;
+  font-family: Arial, sans-serif;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto 1fr auto;
+  height: auto;
+  width: auto;
+  /* border: 1px solid black; */
+  grid-template-areas: 
+  "container-1 container-1"
+  "container-2 container-3"
+  "container-2 container-4"
+  "container-5 container-5";
+
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  margin: 0 auto;  /* Центрирование по горизонтали */
+  border-radius: 5px;  /* Скругление углов container */
+}
+
+.container-1,
+.container-5 {
+  text-align: center;  /* Центрирование текста внутри контейнеров 1 и 5 */
+}
+
+.container-1 {
+  grid-area: container-1;
+  /* border: 1px solid black; */
+}
+
+.container-2 {
+  grid-area: container-2;
+  margin: 5px 5px 0px 10px;
+  /* border: 1px solid black; */
+}
+
+.container-3 {
+  grid-area: container-3;
+  margin: 5px 10px 5px 5px;
+  /* border: 1px solid black; */
+}
+
+.container-4 {
+  grid-area: container-4;
+  margin: 5px 10px 0px 5px;
+  /* border: 1px solid black; */
+}
+
+.container-5 {
+  grid-area: container-5;
+  /* border: 1px solid black; */
+}
+
+fieldset {
+  border-radius: 5px;  /* Скругление углов fieldset */
+}
+
+.counter-questions,
+.counter-variants {
+  height: 120px;
+  min-width: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.counter-questions span,
+.counter-variants span {
+  width: 100%;
+  text-align: center;
+  font-size: 55px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.counter-questions span.num,
+.counter-variants span.num {
+  font-size: 50px;
+  border-right: 2px solid rgba(0, 0, 0, 0.2);
+  border-left: 2px solid rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+}
+

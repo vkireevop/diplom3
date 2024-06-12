@@ -1,0 +1,158 @@
+/* body {
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.window {
+    width: 500px;
+    height: 500px;
+    background-color: #fff;
+    border: 1px solid #000;
+    overflow-y: scroll;
+}
+
+.text-container {
+    padding: 20px;
+}
+
+.text, span, li {
+    font-size: 20px;
+    line-height: 1.5em;
+}
+
+#timer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 10px;
+    background: #fff;
+    color: #000;
+    font-size: 20px;
+}
+
+#marked-words {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    background: #fff;
+    color: #000;
+    font-size: 20px;
+}
+
+#result-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background: #fff;
+    color: #000;
+    display: none;
+    border: 1px solid #000;
+} */
+
+body {
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+#window {
+    width: 600px;
+    height: 400px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow-y: scroll;
+}
+
+#header {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#text {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    margin-bottom: 20px;
+}
+
+#questions {
+    font-size: 1.5rem;
+}
+
+#questions li {
+    margin-bottom: 10px;
+}
+
+span {
+    color: green;
+}
+
+.highlighted {
+    color: red;
+}
+
+#marked-words {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 1.2rem;
+}
+
+#timer {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    font-size: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #eee;
+    cursor: pointer;
+    width: 500px;
+    font-size: 20px;
+}
+
+#modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+}
+
+#modal-content {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    font-size: 20px;
+}
