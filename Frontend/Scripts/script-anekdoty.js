@@ -163,7 +163,7 @@ function showQuestion() {
     answer1Element.textContent = question.answers[0];
     answer2Element.textContent = question.answers[1];
     answer3Element.textContent = question.answers[2];
-    questionNumber.textContent = `Вопрос ${currentQuestion + 1} из ${questions.length}`;
+    questionNumber.textContent = `Вопрос ${currentQuestion + 1} из ${questionsValue}`;
 }
 
 function startTimer() {
@@ -200,15 +200,15 @@ buttons.forEach((button) => {
 
     currentQuestion++;
 
-    if (currentQuestion < questions.length) {
+    if (currentQuestion < questionsValue) {
       showQuestion();
     } else {
       stopTimer();
       modal.style.visibility = "visible";
-      result.textContent = `Правильных ответов(%): ${Math.round((score / questions.length) * 100)}%`;
+      result.textContent = `Правильных ответов(%): ${Math.round((score / questionsValue) * 100)}%`;
       time.textContent = `Время тренинга: ${hours}:${minutes.toString().padStart(2, 0)}:${seconds.toString().padStart(2, 0)}`;
-      avgTime.textContent = `Среднее время ответа(сек): ${seconds2 / questions.length}`;
-      efficiency.textContent = `Эффективность: ${Math.round((score / questions.length) * 100) / (seconds2 / questions.length)}`;
+      avgTime.textContent = `Среднее время ответа(сек): ${seconds2 / questionsValue}`;
+      efficiency.textContent = `Эффективность: ${Math.round((score / questionsValue) * 100) / (seconds2 / questionsValue)}`;
       calculateGrade();
     }
   });

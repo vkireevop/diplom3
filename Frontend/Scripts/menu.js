@@ -37,9 +37,6 @@ const closeModalAndGoToExerciseButton = document.getElementById("close-modal-and
 
 const poemButton = document.getElementById("poem-button");
 
-const questionsValue = localStorage.getItem("questions");
-console.log(`Количество вопросов: ${questionsValue}`);
-
 let currentExerciseIndex = 0;
 
 menuButtons.forEach((button, index) => {
