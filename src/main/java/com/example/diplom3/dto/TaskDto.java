@@ -11,7 +11,6 @@ import java.util.List;
 public class TaskDto {
     private Long taskId;
     private String question;
-    private List<String> variants;
     private String answer;
     @JsonIgnore
     private Course course;

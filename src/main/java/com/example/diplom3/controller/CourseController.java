@@ -25,7 +25,8 @@ public class CourseController {
     }
 
     @PostMapping("/followCourse/{id}")
-    public void followCourse(@PathVariable Long id) {courseFacade.followCourse(id); }
+    public void followCourse(@PathVariable String id) {
+        courseFacade.followCourse(Long.valueOf(id)); }
 
     @GetMapping("/getCourse/{id}")
     public CourseDto getCourse(@PathVariable Long id) {return courseFacade.getCourse(id); }
