@@ -10,8 +10,8 @@ import org.springframework.stereotype.Repository;
 public interface CourseProgressRepository extends JpaRepository<CourseProgress, Long> {
     @Query(value ="""
     FROM CourseProgress cp
-    WHERE cp.courseId = :courseId
-    AND cp.studentId = :studentId
+    WHERE cp.course.id = :courseId
+    AND cp.student.id = :studentId
 """)
     CourseProgress findByStudentAndCourse(@Param("courseId") Long courseId, @Param("studentId") Long studentId);
 }

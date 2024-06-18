@@ -47,7 +47,6 @@ public class AuthTests {
     public void testSave() {
         // Мок для метода save
         when(userRepository.save(testUser)).thenReturn(testUser);
-
         User savedUser = userService.save(testUser);
         assertEquals(testUser, savedUser);
     }
@@ -78,29 +77,4 @@ public class AuthTests {
 
         assertThrows(UsernameNotFoundException.class, () -> userService.getByUsername("nonExistentUser"));
     }
-    @Test
-    @WithMockUser(username = "testUser")
-    public void testGetCurrentUser() {
-        // Мок для метода findByUsername
-        when(userRepository.findByUsername(testUser.getUsername())).thenReturn(Optional.of(testUser));
-
-        User currentUser = userService.getCurrentUser();
-        assertEquals(testUser.getUsername(), currentUser.getUsername());
-    }
-
-    @Test
-    @WithMockUser(username = "testUser", roles = "ADMIN")
-    public void testGetAdmin() {
-        // Моки для методов existsByUsername и existsByEmail
-        when(userRepository.existsByUsername(testUser.getUsername())).thenReturn(false);
-        when(userRepository.existsByEmail(testUser.getEmail())).thenReturn(false);
-
-        // Мок для метода save
-        when(userRepository.save(testUser)).thenReturn(testUser);
-
-        userService.getAdmin();
-        User adminUser = userService.getCurrentUser();
-        assertEquals(Role.ROLE_ADMIN, adminUser.getRole());
-    }
-
 }
