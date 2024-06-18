@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="..\Styles\styles-Installations.css">
+</head>
+<body>
+  <div class="container">
+    <div class="container-1">
+      <h2>Установки...</h2>
+    </div>
+    <fieldset class="container-2">
+      <legend>Вариант Комплекса</legend>
+      <input type="radio" id="class1" name="complex" value="1" checked>
+      <label for="class1">Для 1 класса</label><br>
+      <input type="radio" id="class2" name="complex" value="2">
+      <label for="class2">Для 2 класса</label><br>
+      <input type="radio" id="class34" name="complex" value="34">
+      <label for="class34">Для 3-4 класса</label><br>
+      <input type="radio" id="class58" name="complex" value="58">
+      <label for="class58">Для 5-8 класса</label><br>
+      <input type="radio" id="class911" name="complex" value="911">
+      <label for="class911">Для 9-11 класса и взрослых</label>
+    </fieldset>
+    <fieldset class="container-3">
+      <legend>Режим работы</legend>
+      <input type="radio" id="diagnostic" name="mode" value="diagnostic" checked>
+      <label for="diagnostic">Диагностика</label><br>
+      <input type="radio" id="training" name="mode" value="training">
+      <label for="training">Обучение</label>
+    </fieldset>
+    <fieldset class="container-4">
+      <legend>Дополнительно</legend>
+      <p>
+        <label>Вопросов:</label>
+        <input type="number" step="1" min="1" max="10" value="10" id="counter-questions" name="counter-questions"/>
+      </p>
+      <p>
+        <label>Вариантов:</label>
+        <input type="number" step="1" min="2" max="5" value="3" id="counter-variants" name="counter-variants"/>
+      </p>
+      <input type="checkbox" id="instructions" name="instructions" value="instructions" checked>
+      <label for="instructions">Показывать инструкции</label>
+    </fieldset>
+    <div class="container-5">
+      <button id="submit-button" data-href="..\Pages\main-menu.html">Закрыть</button>
+    </div>
+  </div>
+
+  <script>
+    const submitButton = document.getElementById("submit-button");
+
+    submitButton.addEventListener("click", () => {
+      // Получаем значения выбранных установок
+      const complexValue = document.querySelector('input[name="complex"]:checked').value;
+      const modeValue = document.querySelector('input[name="mode"]:checked').value;
+      const questionsValue = document.getElementById("counter-questions").value;
+      const variantsValue = document.getElementById("counter-variants").value;
+      const instructionsValue = document.getElementById("instructions").checked;
+
+      // Сохраняем значения в localStorage
+      sessionStorage.setItem("complex", complexValue);
+      sessionStorage.setItem("mode", modeValue);
+      sessionStorage.setItem("questions", questionsValue);
+      sessionStorage.setItem("variants", variantsValue);
+      sessionStorage.setItem("instructions", instructionsValue);
+
+      console.log(`Количество вопросов: ${questionsValue}`);
+
+      // Закрываем окно установок
+      window.location.href = submitButton.getAttribute("data-href");
+    });
+  </script>
+</body>
+</html>
