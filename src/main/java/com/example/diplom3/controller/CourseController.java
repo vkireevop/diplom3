@@ -39,12 +39,12 @@ public class CourseController {
     @ApiResponse(responseCode = "500", description = "Внутренняя ошибка сервера")
     @PostMapping("/followCourse/{id}")
     public void followCourse(@PathVariable String id) {
-        courseFacade.followCourse(Long.valueOf(id)); }
+        courseFacade.followCourse(Long.valueOf(id));}
 
     @Operation(summary = "Получение курса по ИД")
     @ApiResponse(responseCode = "200", description = "Получение курса прошло успешно")
     @ApiResponse(responseCode = "400", description = "Указаны некорректные параметры")
     @ApiResponse(responseCode = "500", description = "Внутренняя ошибка сервера")
     @GetMapping("/getCourse/{id}")
-    public CourseDto getCourse(@PathVariable Long id) {return courseFacade.getCourse(id); }
+    public CourseDto getCourse(@PathVariable Long id) {return courseFacade.getCourse(id);}
 }
